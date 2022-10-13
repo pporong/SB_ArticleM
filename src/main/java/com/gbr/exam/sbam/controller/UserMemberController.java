@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gbr.exam.sbam.service.UserArticleService;
 import com.gbr.exam.sbam.service.UserMemberService;
 import com.gbr.exam.sbam.vo.Article;
+import com.gbr.exam.sbam.vo.Member;
 
 @Controller
 public class UserMemberController {
@@ -19,9 +20,12 @@ public class UserMemberController {
 
 	@RequestMapping("user/member/doJoin")
 	@ResponseBody
-	public String doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
-		userMemberService.join(loginId, loginPw, name, nickname, cellphoneNum, email);
-		return "가입!";
+	public Member doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
+		int id = userMemberService.join(loginId, loginPw, name, nickname, cellphoneNum, email);
+
+		Member member = userMemberService.getMemberById(id);
+
+		return member;
 	}
 
 }
