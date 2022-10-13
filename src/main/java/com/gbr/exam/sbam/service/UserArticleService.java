@@ -15,7 +15,6 @@ public class UserArticleService {
 
 	public UserArticleService(ArticleRepository articleRepository) {
 		this.articleRepository = articleRepository;
-		articleRepository.makeTestData();
 	}
 	
 	public Article getArticle(int id) {
