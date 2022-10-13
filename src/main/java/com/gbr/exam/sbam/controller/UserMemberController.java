@@ -43,6 +43,10 @@ public class UserMemberController {
 		if (id == -1) {
 			return "!! 이미 존재하는 아이디입니다 !!";
 		}
+		
+		if (id == -2) {
+			return "!! 이미 존재하는 이름과 이메일입니다 !!";
+		}
 	
 		Member member = userMemberService.getMemberById(id);
 
