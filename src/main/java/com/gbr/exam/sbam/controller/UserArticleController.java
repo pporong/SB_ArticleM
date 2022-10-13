@@ -36,12 +36,12 @@ public class UserArticleController {
 		
 		Article article = userArticleService.getArticle(id);
 
-		return ResultData.from(writeArticleRd.getResultCode(), writeArticleRd.getMsg(), article);
+		return ResultData.newData(writeArticleRd, article);
 	}
 
 	@RequestMapping("/user/article/getArticles")
 	@ResponseBody
-	public ResultData getArticles() {
+	public ResultData<List<Article>> getArticles() {
 		List<Article> articles = userArticleService.getArticles();
 
 		return ResultData.from("S-1", "Article List", articles);
@@ -78,7 +78,7 @@ public class UserArticleController {
 
 	@RequestMapping("/user/article/getArticle")
 	@ResponseBody
-	public ResultData getArticle(int id) {
+	public ResultData<Article> getArticle(int id) {
 		Article article = userArticleService.getArticle(id);
 
 		if (article == null) {
