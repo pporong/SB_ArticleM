@@ -29,7 +29,7 @@ public class UserArticleController {
 	@RequestMapping("/user/article/getArticles")
 	@ResponseBody
 	public List<Article> getArticles() {
-		return UserArticleService.articles();
+		return UserArticleService.getArticles();
 	}
 	
 

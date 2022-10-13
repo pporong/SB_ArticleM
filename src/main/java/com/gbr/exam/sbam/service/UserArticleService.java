@@ -1,68 +1,42 @@
 package com.gbr.exam.sbam.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gbr.exam.sbam.repository.ArticleRepository;
 import com.gbr.exam.sbam.vo.Article;
 
 @Service
 public class UserArticleService {
-	// 인스턴스 변수
-	private int lastArticleId;
-	private List<Article> articles;
+	@Autowired
+	private ArticleRepository articleRepository;
+
+	public UserArticleService(ArticleRepository articleRepository) {
+		this.articleRepository = articleRepository;
+		articleRepository.makeTestData();
+	}
 	
-	// 생성자
-	public UserArticleService() {
-		lastArticleId = 0;
-		articles = new ArrayList<>();
-
-		makeTestData();
-	}
-
-	// 서비스 메서드
-	private void makeTestData() {
-		for (int i = 1; i <= 10; i++) {
-			String title = "제목 " + i;
-			String body = "내용 " + i;
-
-			writeArticle(title, body);
-		}
-	}
 	public Article getArticle(int id) {
-		for (Article article : articles) {
-			if (article.getId() == id) {
-				return article;
-			}
-		}
-
-		return null;
+		return articleRepository.getArticle(id);
+	}
+	
+	public List<Article> getArticles() {
+		return articleRepository.getArticles();
 	}
 	
 	public Article writeArticle(String title, String body) {
-		int id = lastArticleId + 1;
-		Article article = new Article(id, title, body);
-
-		articles.add(article);
-		lastArticleId = id;
-		return article;
+		return articleRepository.writeArticle(title, body);
 	}
 	
 	public void deleteArticle(int id) {
-		Article article = getArticle(id);
-
-		articles.remove(article);
+		articleRepository.deleteArticle(id);
 	}
 
 	public void modifyArticle(int id, String title, String body) {
-		Article article = getArticle(id);
+		articleRepository.modifyArticle(id, title, body);
+	}
 
-		article.setTitle(title);
-		article.setBody(body);
-	}
-	
-	public List<Article> articles() {
-		return articles;
-	}
+
 }
