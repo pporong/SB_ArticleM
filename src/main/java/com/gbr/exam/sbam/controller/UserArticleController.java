@@ -15,13 +15,15 @@ public class UserArticleController {
 	
 	// 인스턴스 변수
 	@Autowired
-	private UserArticleService UserArticleService;
+	private UserArticleService userArticleService;
 
 	// 액션메서드 
 	@RequestMapping("/user/article/doAdd")
 	@ResponseBody
 	public Article doAdd(String title, String body) {
-		Article article = UserArticleService.writeArticle(title, body);
+		int id = userArticleService.writeArticle(title, body);
+
+		Article article = userArticleService.getArticle(id);
 
 		return article;
 	}
@@ -29,20 +31,20 @@ public class UserArticleController {
 	@RequestMapping("/user/article/getArticles")
 	@ResponseBody
 	public List<Article> getArticles() {
-		return UserArticleService.getArticles();
+		return userArticleService.getArticles();
 	}
 	
 
 	@RequestMapping("/user/article/doDelete")
 	@ResponseBody
 	public String doDelete(int id) {
-		Article article = UserArticleService.getArticle(id);
+		Article article = userArticleService.getArticle(id);
 
 		if (article == null) {
 			return id + " 번 게시물은 존재하지 않습니다. :(";
 		}
 
-		UserArticleService.deleteArticle(id);
+		userArticleService.deleteArticle(id);
 
 		return id + " 번 게시물이 삭제되었습니다. :)";
 	}
@@ -50,21 +52,21 @@ public class UserArticleController {
 	@RequestMapping("/user/article/doModify")
 	@ResponseBody
 	public Object doModify(int id, String title, String body) {
-		Article article = UserArticleService.getArticle(id);
+		Article article = userArticleService.getArticle(id);
 
 		if (article == null) {
 			return id + " 번 게시물은 존재하지 않습니다. :(";
 		}
 
-		UserArticleService.modifyArticle(id, title, body);
+		userArticleService.modifyArticle(id, title, body);
 
 		return article;
 	}
 
 	@RequestMapping("/user/article/getArticle")
 	@ResponseBody
-	public Object getArticleAction(int id) {
-		Article article = UserArticleService.getArticle(id);
+	public Object getArticle(int id) {
+		Article article = userArticleService.getArticle(id);
 
 		if (article == null) {
 			return id + " 번 게시물은 존재하지 않습니다. :(";
