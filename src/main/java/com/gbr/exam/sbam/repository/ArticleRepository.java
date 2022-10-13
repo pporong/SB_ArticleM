@@ -10,7 +10,7 @@ import com.gbr.exam.sbam.vo.Article;
 public interface ArticleRepository {
 
 	// INSERT INTO article SET regDate = NOW(), updateDate = NOW(), title = ?, `body` = ?;
-	public void writeArticle(String title, String body);
+	public void writeArticle(int memberId, String title, String body);
 
 	// SELECT * FROM article WHERE id = ?;
 	public Article getArticle(int id);
