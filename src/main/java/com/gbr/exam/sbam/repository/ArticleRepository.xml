@@ -6,20 +6,17 @@
 	<insert id="writeArticle">
 		INSERT INTO article
 		SET regDate = NOW(),
-		updateDate =
-		NOW(),
+		updateDate = NOW(),
 		title = #{title},
 		`body` = #{body}
 	</insert>
 
 	<select id="getArticles" resultType="Article">
-		SELECT * FROM article ORDER
-		BY id DESC
+		SELECT * FROM article ORDER BY id DESC
 	</select>
 
 	<select id="getArticle" resultType="Article">
-		SELECT * FROM article WHERE
-		id = #{id}
+		SELECT * FROM article WHERE id = #{id}
 	</select>
 
 	<delete id="deleteArticle">
