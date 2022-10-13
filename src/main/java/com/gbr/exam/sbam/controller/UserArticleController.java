@@ -97,7 +97,7 @@ public class UserArticleController {
 	
 	@RequestMapping("/user/article/doModify")
 	@ResponseBody
-	public String doModify(int id, String title, String body) {
+	public Object doModify(int id, String title, String body) {
 		Article article = getArticle(id);
 
 		if (article == null) {
@@ -106,7 +106,18 @@ public class UserArticleController {
 
 		modifyArticle(id, title, body);
 
-		return id + " 번 게시물이 수정되었습니다. :)";
+		return article;
 	}
 
+	@RequestMapping("/user/article/getArticle")
+	@ResponseBody
+	public Object getArticleAction(int id) {
+		Article article = getArticle(id);
+
+		if (article == null) {
+			return id + " 번 게시물은 존재하지 않습니다. :(";
+		}
+
+		return article;
+	}
 }
