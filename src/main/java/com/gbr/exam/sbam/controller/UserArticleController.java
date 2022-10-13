@@ -22,7 +22,7 @@ public class UserArticleController {
 	// 액션메서드 
 	@RequestMapping("/user/article/doAdd")
 	@ResponseBody
-	public ResultData doAdd(String title, String body) {
+	public ResultData<Article> doAdd(String title, String body) {
 		if (Ut.empty(title)) {
 			return ResultData.from("F-1", "제목을 입력해주세요");
 		}
@@ -50,30 +50,30 @@ public class UserArticleController {
 
 	@RequestMapping("/user/article/doDelete")
 	@ResponseBody
-	public String doDelete(int id) {
+	public ResultData<Integer> doDelete(int id) {
 		Article article = userArticleService.getArticle(id);
 
 		if (article == null) {
-			return id + " 번 게시물은 존재하지 않습니다. :(";
+			return ResultData.from("F-1", Ut.f("%d번 게시물은 존재하지 않습니다 :(", id), id);
 		}
 
 		userArticleService.deleteArticle(id);
 
-		return id + " 번 게시물이 삭제되었습니다. :)";
+		return ResultData.from("S-1", Ut.f("%d번 게시물이 삭제되었습니다. :)", id), id);
 	}
 	
 	@RequestMapping("/user/article/doModify")
 	@ResponseBody
-	public Object doModify(int id, String title, String body) {
+	public ResultData<Integer> doModify(int id, String title, String body) {
 		Article article = userArticleService.getArticle(id);
 
 		if (article == null) {
-			return id + " 번 게시물은 존재하지 않습니다. :(";
+			return ResultData.from("F-1", Ut.f("%d번 게시물은 존재하지 않습니다 :(", id), id);
 		}
 
 		userArticleService.modifyArticle(id, title, body);
 
-		return article;
+		return ResultData.from("S-1", Ut.f("%d번 게시물이 수정되었습니다. :)", id), id);
 	}
 
 	@RequestMapping("/user/article/getArticle")
