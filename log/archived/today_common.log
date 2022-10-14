@@ -1,0 +1,2 @@
+2022-10-14 15:26:15 [DEBUG] org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2022-10-14 15:37:10 [DEBUG] org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
