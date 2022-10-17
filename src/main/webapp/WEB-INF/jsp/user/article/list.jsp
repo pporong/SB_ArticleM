@@ -1,24 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>LIST</title>
-</head>
-<body>
+<c:set var="pageTitle" value="ARTICLE LIST" />
+<%@ include file="../common/head.jspf"%>
 
-	<h1>LIST</h1>
-	<hr />
-	<header>
-		<a href="#">로고</a>
-
-		<ul>
-			<li><a href="/">HOME</a></li>
-			<li><a href="/usr/article/list">LIST</a></li>
-		</ul>
-	</header>
 
 	<table border="1">
 		<thead>
@@ -29,6 +14,7 @@
 				<th>작성자</th>
 			</tr>
 		</thead>
+		
 		<tbody>
 			<c:forEach var="article" items="${articles }">
 				<tr>
@@ -41,5 +27,5 @@
 		</tbody>
 	</table>
 
-</body>
-</html>
+</table>
+<%@ include file="../common/foot.jspf"%>

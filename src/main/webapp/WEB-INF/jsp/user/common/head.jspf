@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${pageTitle }</title>
+<!-- 제이쿼리 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!-- 테일윈드 불러오기 -->
+<!-- 노말라이징, 라이브러리까지 -->
+<script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+<!-- 폰트어썸 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+<!-- css -->
+<link rel="stylesheet" href="/resource/common.css" />
+<!-- js -->
+<script src="/resource/common.js" defer="defer"></script>
+
+</head>
+<body>
+
+
+		<h1 class="text-blue-900 text-center text-3xl"> ${pageTitle }&nbsp; PAGE </h1>
+
+		<header>
+			<div class="logo_box"><a href="#">logo</a></div>
+
+			<ul class="">
+				<li><a href="/">HOME</a></li>
+				<li><a href="/user/article/list">LIST</a></li>
+				<li><a href="/user/member/login">LOGIN</a></li>
+			</ul>
+		</header>
+
+		<main>
