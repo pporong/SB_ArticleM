@@ -6,14 +6,18 @@
 <title>MAIN</title>
 </head>
 <body>
+<h1>Main Page</h1>
 
-		<h1>메인페이지</h1>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi soluta ipsa unde eveniet aperiam harum
-				vitae quisquam officiis rem pariatur beatae et delectus dolore necessitatibus incidunt praesentium dolorum. At
-				dolore.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis esse nobis tempora neque 
-			impedit alias voluptatem doloribus ut exercitationem modi praesentium tenetur at repellendus 
-			maiores dolore omnis aperiam nihil distinctio!					
-		</div>
+	<header>
+		<a href="#">로고</a>
+
+		<ul>
+			<li><a href="/">HOME</a></li>
+			<li><a href="/user/article/list">LIST</a></li>
+		</ul>
+	</header>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed officiis tempore et in fugiat natus nobis
+		placeat veritatis repellat cupiditate similique est impedit. Tenetur optio facere a perferendis rem quasi!</div>
 </body>
 </html>

@@ -9,8 +9,17 @@
 </head>
 <body>
 
-	<div>list</div>
+	<h1>LIST</h1>
 	<hr />
+	<header>
+		<a href="#">로고</a>
+
+		<ul>
+			<li><a href="/">HOME</a></li>
+			<li><a href="/usr/article/list">LIST</a></li>
+		</ul>
+	</header>
+
 	<table border="1">
 		<thead>
 			<tr>
@@ -20,7 +29,6 @@
 				<th>작성자</th>
 			</tr>
 		</thead>
-
 		<tbody>
 			<c:forEach var="article" items="${articles }">
 				<tr>
@@ -28,13 +36,9 @@
 					<td>${article.regDate.substring(0,10)}</td>
 					<td><a href="../article/detail?id=${article.id}">${article.title}</a></td>
 					<td>${article.memberId}</td>
-
 				</tr>
 			</c:forEach>
 		</tbody>
-
-
-
 	</table>
 
 </body>
