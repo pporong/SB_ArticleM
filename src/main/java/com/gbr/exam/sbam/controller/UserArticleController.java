@@ -127,16 +127,13 @@ public class UserArticleController {
 
 	}
 
-	@RequestMapping("/user/article/getArticle")
-	@ResponseBody
-	public ResultData<Article> getArticle(int id) {
+	@RequestMapping("/user/article/detail")
+	public String showDetail(Model model, int id) {
 		Article article = userArticleService.getArticle(id);
 
-		if (article == null) {
-			return ResultData.from("F-1", Ut.f("%d번 게시물은 존재하지 않습니다. :(", id));
-		}
+		model.addAttribute("article", article);
 
-		return ResultData.from("S-1", Ut.f("%d번 게시물입니다.", id), "article", article);
+		return "user/article/detail";
 	}
 
 }
