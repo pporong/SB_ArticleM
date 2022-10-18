@@ -8700,3 +8700,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'A.memberId' in 'on clause'
 
 2022-10-18 21:38:11 [DEBUG] c.g.e.s.r.A.getArticles - <==      Total: 3
 2022-10-18 21:38:11 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e50a2c]
+2022-10-18 21:38:40 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2022-10-18 21:38:40 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Fill pool skipped, pool is at sufficient level.
+2022-10-18 21:39:10 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2022-10-18 21:39:10 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Fill pool skipped, pool is at sufficient level.
