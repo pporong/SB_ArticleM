@@ -12,12 +12,8 @@
 		`body` = #{body}
 	</insert>
 
-<select id="getArticles" resultType="Article">
-		SELECT A.*, M.name AS extra__writer
-		FROM article as A
-		INNER JOIN `member` as M
-		ON A.memberId = M.id
-		ORDER BY A.id DESC
+	<select id="getArticles" resultType="Article">
+		SELECT * FROM article ORDER BY id DESC
 	</select>
 
 	<select id="getArticle" resultType="Article">
